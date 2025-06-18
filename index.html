@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ДВОЯКИЙ ДИЗАЙН | Цифровой вирус</title>
+    <style>
+        body {
+            background: #000;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        .glitch {
+            font-size: 48px;
+            text-shadow: 0 0 10px #0f0;
+            animation: glitch 1s infinite;
+        }
+        @keyframes glitch {
+            0% { text-shadow: 0 0 10px #0f0; }
+            25% { text-shadow: -5px 0 10px #f00; }
+            50% { text-shadow: 5px 0 10px #00f; }
+            100% { text-shadow: 0 0 10px #0f0; }
+        }
+        .download-btn {
+            display: inline-block;
+            margin: 30px;
+            padding: 15px 30px;
+            background: #111;
+            color: #0f0;
+            border: 2px solid #0f0;
+            text-decoration: none;
+            font-size: 24px;
+            transition: all 0.3s;
+        }
+        .download-btn:hover {
+            background: #0f0;
+            color: #000;
+            box-shadow: 0 0 20px #0f0;
+        }
+        .warning {
+            color: #f00;
+            border: 1px dashed #f00;
+            padding: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+        }
+        .pixel-art {
+            image-rendering: pixelated;
+            width: 200px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="glitch">ДВОЯКИЙ ДИЗАЙН</h1>
+    <p>Эксперимент по заражению цифрового пространства</p>
+    
+    <img src="poster.jpg" alt="Глитч-постер" class="pixel-art">
+    
+    <div class="warning">
+        ВНИМАНИЕ! Этот файл может:<br>
+        • Нарушить ваше восприятие реальности<br>
+        • Заменить ваши воспоминания<br>
+        • Исчезнуть через 24 часа
+    </div>
+    
+    <a href="INFOVIRUS.zip" class="download-btn">СКАЧАТЬ ВИРУС</a>
+    
+    <p>v1.0 | <span id="counter">0</span> скачиваний</p>
+
+    <script>
+        // Счётчик (для антуража)
+        let count = 0;
+        setInterval(() => {
+            count += Math.floor(Math.random() * 3);
+            document.getElementById('counter').textContent = count;
+        }, 2000);
+
+        // Случайные глитч-эффекты
+        setInterval(() => {
+            document.body.style.color = 
+                `rgb(${Math.random()*100}, ${Math.random()*255}, ${Math.random()*100})`;
+        }, 300);
+    </script>
+</body>
+</html>
