@@ -1,89 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Скачай мой файл (если осмелишься)</title>
+    <title>ДВОЯКИЙ ДИЗАЙН | Цифровой вирус</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: black;
-            color: white;
-            margin: 0;
+            background: #000;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
             padding: 20px;
+            overflow-x: hidden;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
+        .glitch {
+            font-size: 48px;
+            text-shadow: 0 0 10px #0f0;
+            animation: glitch 1s infinite;
         }
-        h1 {
-            color: red;
-            text-align: center;
+        @keyframes glitch {
+            0% { text-shadow: 0 0 10px #0f0; }
+            25% { text-shadow: -5px 0 10px #f00; }
+            50% { text-shadow: 5px 0 10px #00f; }
+            100% { text-shadow: 0 0 10px #0f0; }
         }
-        #terms {
-            height: 300px;
-            overflow-y: scroll;
-            border: 1px solid #333;
-            padding: 15px;
-            margin-bottom: 20px;
+        .download-btn {
+            display: inline-block;
+            margin: 30px;
+            padding: 15px 30px;
             background: #111;
-        }
-        #download-btn {
-            display: block;
-            width: 200px;
-            margin: 0 auto;
-            padding: 10px;
-            background: red;
-            color: white;
-            text-align: center;
+            color: #0f0;
+            border: 2px solid #0f0;
             text-decoration: none;
-            border: none;
-            cursor: pointer;
+            font-size: 24px;
+            transition: all 0.3s;
+        }
+        .download-btn:hover {
+            background: #0f0;
+            color: #000;
+            box-shadow: 0 0 20px #0f0;
+        }
+        .warning {
+            color: #f00;
+            border: 1px dashed #f00;
+            padding: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+        }
+        .pixel-art {
+            image-rendering: pixelated;
+            width: 200px;
+            margin: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>ДОСТУП К ФАЙЛУ</h1>
-        <div id="terms">
-            <!-- Сюда будет вставляться бесконечное соглашение -->
-        </div>
-        <a id="download-btn" href="YOUR_FILE.zip" download>СКАЧАТЬ</a>
+    <h1 class="glitch">ДВОЯКИЙ ДИЗАЙН</h1>
+    <p>Эксперимент по заражению цифрового пространства</p>
+    
+    <img src="poster.jpg" alt="Глитч-постер" class="pixel-art">
+    
+    <div class="warning">
+        ВНИМАНИЕ! Этот файл может:<br>
+        • Нарушить ваше восприятие реальности<br>
+        • Заменить ваши воспоминания<br>
+        • Исчезнуть через 24 часа
     </div>
+    
+    <a href="INFOVIRUS.zip" class="download-btn">СКАЧАТЬ ВИРУС</a>
+    
+    <p>v1.0 | <span id="counter">0</span> скачиваний</p>
 
     <script>
-        // Генератор бесконечного пользовательского соглашения
-        const terms = [
-            "Вы соглашаетесь, что ваша душа принадлежит нам.",
-            "Вы отказываетесь от права на тишину.",
-            "Ваши данные будут проданы 3,5 раза.",
-            "Вы согласны получать 127 уведомлений в час.",
-            "Принимаете условия, которые мы сами не читали.",
-            "Отказываетесь от права понимать этот текст.",
-            "Соглашаетесь, что всё это — симуляция.",
-            "Ваша первая печенька автоматически принята."
-        ];
-
-        const termsContainer = document.getElementById('terms');
+        // Счётчик (для антуража)
         let count = 0;
+        setInterval(() => {
+            count += Math.floor(Math.random() * 3);
+            document.getElementById('counter').textContent = count;
+        }, 2000);
 
-        function addMoreTerms() {
-            for (let i = 0; i < 5; i++) {
-                count++;
-                const p = document.createElement('p');
-                p.textContent = `${count}. ${terms[Math.floor(Math.random() * terms.length)]}`;
-                termsContainer.appendChild(p);
-            }
-        }
-
-        // Добавляем новые пункты при прокрутке
-        termsContainer.addEventListener('scroll', function() {
-            if (this.scrollTop + this.clientHeight >= this.scrollHeight - 10) {
-                addMoreTerms();
-            }
-        });
-
-        // Стартовое заполнение
-        addMoreTerms();
-        addMoreTerms();
+        // Случайные глитч-эффекты
+        setInterval(() => {
+            document.body.style.color = 
+                `rgb(${Math.random()*100}, ${Math.random()*255}, ${Math.random()*100})`;
+        }, 300);
     </script>
 </body>
 </html>
