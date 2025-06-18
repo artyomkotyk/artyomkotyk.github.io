@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Скачай мой файл (если осмелишься)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: black;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: red;
+            text-align: center;
+        }
+        #terms {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #333;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: #111;
+        }
+        #download-btn {
+            display: block;
+            width: 200px;
+            margin: 0 auto;
+            padding: 10px;
+            background: red;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ДОСТУП К ФАЙЛУ</h1>
+        <div id="terms">
+            <!-- Сюда будет вставляться бесконечное соглашение -->
+        </div>
+        <a id="download-btn" href="YOUR_FILE.zip" download>СКАЧАТЬ</a>
+    </div>
+
+    <script>
+        // Генератор бесконечного пользовательского соглашения
+        const terms = [
+            "Вы соглашаетесь, что ваша душа принадлежит нам.",
+            "Вы отказываетесь от права на тишину.",
+            "Ваши данные будут проданы 3,5 раза.",
+            "Вы согласны получать 127 уведомлений в час.",
+            "Принимаете условия, которые мы сами не читали.",
+            "Отказываетесь от права понимать этот текст.",
+            "Соглашаетесь, что всё это — симуляция.",
+            "Ваша первая печенька автоматически принята."
+        ];
+
+        const termsContainer = document.getElementById('terms');
+        let count = 0;
+
+        function addMoreTerms() {
+            for (let i = 0; i < 5; i++) {
+                count++;
+                const p = document.createElement('p');
+                p.textContent = `${count}. ${terms[Math.floor(Math.random() * terms.length)]}`;
+                termsContainer.appendChild(p);
+            }
+        }
+
+        // Добавляем новые пункты при прокрутке
+        termsContainer.addEventListener('scroll', function() {
+            if (this.scrollTop + this.clientHeight >= this.scrollHeight - 10) {
+                addMoreTerms();
+            }
+        });
+
+        // Стартовое заполнение
+        addMoreTerms();
+        addMoreTerms();
+    </script>
+</body>
+</html>
