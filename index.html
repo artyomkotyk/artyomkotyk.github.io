@@ -1,115 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>ДВОЯКИЙ ДИЗАЙН | Пользовательское соглашение</title>
-    <style>
-        body {
-            font-family: 'Courier New', monospace;
-            background: #000;
-            color: #0f0;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        h1 {
-            color: red;
-            text-align: center;
-            text-shadow: 0 0 5px #f00;
-        }
-        #terms {
-            height: 300px;
-            overflow-y: scroll;
-            border: 1px dashed #0f0;
-            padding: 15px;
-            margin: 20px 0;
-            background: #111;
-        }
-        .download-btn {
-            display: block;
-            width: 200px;
-            margin: 20px auto;
-            padding: 15px;
-            background: #000;
-            color: #0f0;
-            border: 2px solid #0f0;
-            text-align: center;
-            text-decoration: none;
-            font-size: 18px;
-            transition: all 0.3s;
-        }
-        .download-btn:hover {
-            background: #0f0;
-            color: #000;
-            box-shadow: 0 0 15px #0f0;
-        }
-        .glitch {
-            animation: glitch 1s infinite;
-        }
-        @keyframes glitch {
-            0% { text-shadow: 0 0 5px #0f0; }
-            50% { text-shadow: 0 0 10px #f00; }
-            100% { text-shadow: 0 0 5px #0f0; }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Киберпаук и светлячок | Artyom Kotyk</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1 class="glitch">ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ</h1>
-        
-        <div id="terms">
-            <!-- Сюда будет добавляться бесконечный текст -->
-        </div>
-        
-        <a href="DVOYAKIY.zip" class="download-btn">СКАЧАТЬ АРХИВ</a>
-        
-        <p style="text-align: center; color: #f00;">
-            Нажимая кнопку, вы соглашаетесь со всем вышеперечисленным
-        </p>
+        <header>
+            <h1>Кибернетический паук vs. Светлячок</h1>
+            <p>Проект в стиле Computer Vision и глитч-арта</p>
+        </header>
+
+        <main>
+            <section class="image-section">
+                <img src="image/cyber-spider.jpg" alt="Киберпаук спускается к светлячку" class="glitch-img">
+                <p>Изображение сгенерировано нейросетью Kandinsky 3.1</p>
+            </section>
+
+            <section class="download-section">
+                <h2>Материалы для скачивания</h2>
+                <a href="downloads/project-files.zip" class="download-btn">Скачать ZIP (исходники)</a>
+                <p>Архив содержит PSD-файл, промты и дополнительные ресурсы.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2024 Artyom Kotyk | <a href="https://github.com/artyomkotyk" target="_blank">GitHub</a></p>
+        </footer>
     </div>
-
-    <script>
-        // Генератор бесконечного соглашения
-        const terms = [
-            "Вы соглашаетесь, что ваши данные будут проданы 3 раза.",
-            "Вы отказываетесь от права на приватность.",
-            "Ваша душа переходит в собственность корпорации.",
-            "Вы разрешаете следить за вами через веб-камеру.",
-            "Все ваши действия записываются и анализируются.",
-            "Вы согласны получать 247 уведомлений в день.",
-            "Ваша семья тоже подписывает это соглашение.",
-            "Вы не будете искать в этом логику."
-        ];
-
-        const termsContainer = document.getElementById('terms');
-        let count = 0;
-
-        function addMoreTerms() {
-            for (let i = 0; i < 10; i++) {
-                count++;
-                const p = document.createElement('p');
-                p.textContent = `${count}. ${terms[Math.floor(Math.random() * terms.length)]}`;
-                termsContainer.appendChild(p);
-            }
-        }
-
-        // Добавляем новые пункты при прокрутке
-        termsContainer.addEventListener('scroll', function() {
-            if (this.scrollTop + this.clientHeight >= this.scrollHeight - 50) {
-                addMoreTerms();
-            }
-        });
-
-        // Автопрокрутка для эффекта безумия
-        setInterval(() => {
-            termsContainer.scrollBy(0, 1);
-        }, 100);
-
-        // Стартовое заполнение
-        addMoreTerms();
-        addMoreTerms();
-    </script>
 </body>
 </html>
