@@ -3,32 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Киберпаук и светлячок | Artyom Kotyk</title>
-    <link rel="stylesheet" href="style.css">
+    <title>ДВОЯКИЙ ДИЗАЙН | Пользовательское соглашение</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #0f0;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        h1 {
+            color: red;
+            text-align: center;
+            text-shadow: 0 0 5px #f00;
+            margin-bottom: 30px;
+        }
+        #terms {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px dashed #0f0;
+            padding: 15px;
+            margin: 20px 0;
+            background: #111;
+            position: relative;
+        }
+        #terms::-webkit-scrollbar {
+            width: 5px;
+        }
+        #terms::-webkit-scrollbar-thumb {
+            background: #0f0;
+        }
+        .download-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 15px;
+            background: #000;
+            color: #0f0;
+            border: 2px solid #0f0;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .download-btn:hover {
+            background: #0f0;
+            color: #000;
+            box-shadow: 0 0 15px #0f0;
+        }
+        .download-btn::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                transparent 45%,
+                rgba(0, 255, 0, 0.3) 50%,
+                transparent 55%
+            );
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        .glitch {
+            animation: glitch 1s infinite;
+        }
+        @keyframes glitch {
+            0% { text-shadow: 0 0 5px #0f0; }
+            25% { transform: translate(-2px, 2px); }
+            50% { text-shadow: 0 0 10px #f00; color: #00f; }
+            75% { transform: translate(2px, -2px); }
+            100% { text-shadow: 0 0 5px #0f0; }
+        }
+        @keyframes shine {
+            0% { left: -100%; top: -100%; }
+            100% { left: 100%; top: 100%; }
+        }
+        .warning {
+            text-align: center;
+            color: #f00;
+            font-size: 14px;
+            margin-top: 10px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+        .static {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.9),
+                rgba(0, 0, 0, 0.9) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            opacity: 0.1;
+            z-index: 100;
+        }
+    </style>
 </head>
 <body>
+    <div class="static"></div>
     <div class="container">
-        <header>
-            <h1>Кибернетический паук vs. Светлячок</h1>
-            <p>Проект в стиле Computer Vision и глитч-арта</p>
-        </header>
-
-        <main>
-            <section class="image-section">
-                <img src="image/cyber-spider.jpg" alt="Киберпаук спускается к светлячку" class="glitch-img">
-                <p>Изображение сгенерировано нейросетью Kandinsky 3.1</p>
-            </section>
-
-            <section class="download-section">
-                <h2>Материалы для скачивания</h2>
-                <a href="downloads/project-files.zip" class="download-btn">Скачать ZIP (исходники)</a>
-                <p>Архив содержит PSD-файл, промты и дополнительные ресурсы.</p>
-            </section>
-        </main>
-
-        <footer>
-            <p>© 2024 Artyom Kotyk | <a href="https://github.com/artyomkotyk" target="_blank">GitHub</a></p>
-        </footer>
+        <h1 class="glitch">ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ</h1>
+        
+        <div id="terms">
+            <!-- Сюда будет добавляться бесконечный текст -->
+        </div>
+        
+        <a href="DVOYAKIY.zip" class="download-btn">СКАЧАТЬ АРХИВ</a>
+        
+        <p class="warning">
+            Нажимая кнопку, вы соглашаетесь со всем вышеперечисленным
+        </p>
     </div>
+
+    <script>
+        // Генератор бесконечного соглашения
+        const terms = [
+            "Вы соглашаетесь, что ваши данные будут проданы 3 раза.",
+            "Вы отказываетесь от права на приватность.",
+            "Ваша душа переходит в собственность корпорации.",
+            "Вы разрешаете следить за вами через веб-камеру.",
+            "Все ваши действия записываются и анализируются.",
+            "Вы согласны получать 247 уведомлений в день.",
+            "Ваша семья тоже подписывает это соглашение.",
+            "Вы не будете искать в этом логику.",
+            "Ваше устройство может взорваться в любой момент.",
+            "Вы соглашаетесь на клонирование вашего сознания.",
+            "Ваши сны становятся собственностью компании.",
+            "Вы передаёте права на свою биографию.",
+            "Ваши воспоминания могут быть отредактированы.",
+            "Вы соглашаетесь на экспериментальные обновления мозга.",
+            "Ваш ДНК будет использован для создания гибридов."
+        ];
+
+        const termsContainer = document.getElementById('terms');
+        let count = 0;
+
+        function addMoreTerms() {
+            for (let i = 0; i < 10; i++) {
+                count++;
+                const p = document.createElement('p');
+                p.textContent = `${count}. ${terms[Math.floor(Math.random() * terms.length)]}`;
+                
+                // Случайный эффект для пунктов
+                if (Math.random() > 0.7) {
+                    p.style.color = `hsl(${Math.random() * 120}, 100%, 50%)`;
+                    p.style.textShadow = `0 0 5px currentColor`;
+                }
+                
+                termsContainer.appendChild(p);
+            }
+        }
+
+        // Добавляем новые пункты при прокрутке
+        termsContainer.addEventListener('scroll', function() {
+            if (this.scrollTop + this.clientHeight >= this.scrollHeight - 50) {
+                addMoreTerms();
+            }
+        });
+
+        // Автопрокрутка для эффекта безумия
+        setInterval(() => {
+            termsContainer.scrollBy(0, 1);
+        }, 100);
+
+        // Эффект мерцания
+        setInterval(() => {
+            document.body.style.backgroundColor = `rgb(${
+                Math.floor(Math.random() * 10)
+            }, ${
+                Math.floor(Math.random() * 10)
+            }, ${
+                Math.floor(Math.random() * 10)
+            })`;
+        }, 3000);
+
+        // Стартовое заполнение
+        for (let i = 0; i < 5; i++) {
+            addMoreTerms();
+        }
+    </script>
 </body>
 </html>
